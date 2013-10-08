@@ -1,4 +1,5 @@
 var http = require('http'),
+    fs = require('fs'),
     faye = require('faye'),
     redis = require('faye-redis');
 
@@ -14,11 +15,17 @@ var bayeux = new faye.NodeAdapter({
   }
 });
 // Handle non-Bayeux requests
-var server = http.createServer(function(request, response) {
-  response.writeHead(200, {'Content-Type': 'text/plain'});
-  response.setHeader('Access-Control-Allow-Origin', '*');
-  response.write('Hello, non-Bayeux request');
-  response.end();
+var server = http.createServer(function(request, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  fs.readFile(__dirname + '/index.html', function (err,data) {
+    if (err) {
+      res.writeHead(404);
+      res.end(JSON.stringify(err));
+      return;
+    }
+    res.writeHead(200);
+    res.end(data);
+  });
 });
 
 bayeux.attach(server);

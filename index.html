@@ -1,0 +1,15 @@
+<html><head>
+    <script type="text/javascript" src="/faye/client.js"></script>
+    <script type="text/javascript">
+      var client = new Faye.Client('/faye');
+      client.subscribe('/chat', function(message) {
+        alert('Got a message: ' + message.text);
+      });
+    </script>
+  </head>
+  <body>
+    <a href="#" onclick="javascript:client.publish('/chat',{ text: 'Hello world!'});">Click me!</a>
+  
+
+
+</body></html>
