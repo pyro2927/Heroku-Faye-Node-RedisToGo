@@ -34,3 +34,4 @@ This instance of Faye is setup to cluster around [RedisToGo](https://addons.hero
 
 * Add in pub/sub secret to only allow authorized users
 * Auto-scale dynos as necessary
+* Add in sample client page
