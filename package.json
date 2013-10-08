@@ -1,0 +1,17 @@
+{
+  "name": "heroku-faye-node-redistogo",
+  "version": "0.0.1",
+  "description": "Faye server, capable of being clustered around RedisToGo",
+  "main": "index.js",
+  "repository": "",
+  "author": "Joe Pintozzi",
+  "license": "MIT",
+  "dependencies": {
+    "faye": "1.0.0",
+    "faye-redis": "0.2.0"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  }
+}
